@@ -8,7 +8,6 @@ registry for registered users.
 
 ## Supported Ubuntu Versions
 
-- Xenian 16.04 LTS (deprecated)
 - Bionic 18.04 LTS
 
 
