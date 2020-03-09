@@ -49,6 +49,7 @@ net-tools
 netplan
 nfs-common
 nfs-ganesha
+nginx
 ntp
 openssh-server
 openssh-sftp-server
@@ -89,3 +90,5 @@ slurm
 sysstat
 systemd
 unzip
+wireless-tools
+wpasupplicant
