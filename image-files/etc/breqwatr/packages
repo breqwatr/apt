@@ -48,6 +48,7 @@ multipath-tools
 net-tools
 netplan
 nfs-common
+nfs-kernel-server
 nfs-ganesha
 nginx
 ntp
