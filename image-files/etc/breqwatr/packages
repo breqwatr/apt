@@ -37,7 +37,6 @@ libpython2.7-minimal
 librados2
 libradosstriper1
 librbd1
-librbd1
 librgw2
 libsnappy1v5
 libsystemd0
