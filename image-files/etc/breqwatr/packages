@@ -89,6 +89,7 @@ sharutils
 slurm
 sysstat
 systemd
+tshark
 unzip
 wireless-tools
 wpasupplicant
