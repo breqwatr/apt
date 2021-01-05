@@ -1,4 +1,4 @@
-FROM ubuntu:xenial
+FROM ubuntu:bionic
 # NOTE(kyle):
 # Aptly is maybe not a great choice any more. It doesn't support gpgv2, and
 # ubuntu:bionic doesn't support gpgv1. I've had to remove the signing code.
@@ -24,7 +24,7 @@ COPY image-files/ /
 
 # bionic
 #  REMINDER: keys.gnupg.net is very often broken. Use keyserver.ubuntu.com.
-RUN gpg --no-default-keyring --keyring trustedkeys.gpg --keyserver keyserver.ubuntu.com --recv-keys 3B4FE6ACC0B21F32 \
+RUN gpg --no-default-keyring --keyring trustedkeys.gpg --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 3B4FE6ACC0B21F32 \
  && aptly mirror create \
       -architectures=amd64 \
       -filter "$(cat /etc/breqwatr/packages | paste -sd "|" -)" \
@@ -58,7 +58,7 @@ RUN gpg --no-default-keyring --keyring trustedkeys.gpg --keyserver keyserver.ubu
  && aptly mirror update bionic-security \
  && aptly snapshot create bionic-security from mirror bionic-security \
 # ceph (merge with bionic)
- && gpg --no-default-keyring --keyring trustedkeys.gpg --keyserver keyserver.ubuntu.com --recv-keys E84AC2C0460F3994 \
+ && gpg --no-default-keyring --keyring trustedkeys.gpg --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys E84AC2C0460F3994 \
  && aptly mirror create \
       -architectures=amd64 \
       -filter "$(cat /etc/breqwatr/packages | paste -sd "|" -)" \
@@ -66,11 +66,11 @@ RUN gpg --no-default-keyring --keyring trustedkeys.gpg --keyserver keyserver.ubu
       -filter-with-deps=true \
       -with-sources=false \
       ceph \
-      http://download.ceph.com/debian-luminous bionic main \
+      http://download.ceph.com/debian-octopus bionic main \
  && aptly mirror update ceph \
  && aptly snapshot create ceph from mirror ceph \
 # docker (merge with bionic)
- && gpg --no-default-keyring --keyring trustedkeys.gpg --keyserver keyserver.ubuntu.com --recv-keys 7EA0A9C3F273FCD8 \
+ && gpg --no-default-keyring --keyring trustedkeys.gpg --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 7EA0A9C3F273FCD8 \
  && aptly mirror create \
       -ignore-signatures \
       -architectures=amd64 \
