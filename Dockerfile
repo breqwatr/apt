@@ -88,4 +88,5 @@ RUN gpg --no-default-keyring --keyring trustedkeys.gpg --keyserver hkp://keyserv
  && aptly publish -skip-signing -batch=true snapshot bionic-updates \
  && aptly publish -skip-signing -batch=true snapshot bionic-security
 
+RUN cp $GPG_PUBLIC_KEY_FILE /aptly/public/gpg
 CMD /usr/sbin/nginx
