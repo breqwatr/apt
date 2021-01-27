@@ -45,6 +45,7 @@ liboath0
 libpython2.7
 libpython2.7-dev
 libpython2.7-minimal
+libquadmath0
 librabbitmq4
 librados2
 libradosstriper1
@@ -120,5 +121,6 @@ sysstat
 systemd
 tshark
 unzip
+virtualenv
 wireless-tools
 wpasupplicant
